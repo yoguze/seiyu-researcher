@@ -1,0 +1,80 @@
+/* style.css - 白ベース＋青アクセントで整えたニュース一覧 */
+
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 24px;
+    background-color: #ffffff;
+    color: #111111;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    color: #0b63d7;
+}
+
+.meta {
+    font-size: 0.9rem;
+    color: #555555;
+    margin-top: 4px;
+}
+
+ul.news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+@media(min-width: 600px) {
+    ul.news-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+li.news-item {
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+li.news-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+a.title {
+    font-weight: 600;
+    text-decoration: none;
+    color: #0b63d7;
+}
+
+a.title:hover {
+    text-decoration: underline;
+}
+
+.date {
+    font-size: 0.85rem;
+    color: #777777;
+    margin-top: 6px;
+}
+
+.footer {
+    margin-top: 32px;
+    font-size: 0.85rem;
+    color: #666666;
+    text-align: center;
+}

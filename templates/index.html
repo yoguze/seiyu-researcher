@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>声優ニュース（ORICON / Google News）</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div>
+            <h1>声優ニュース</h1>
+            <div class="meta">キーワード: {{ keywords | join(' / ') }}</div>
+        </div>
+        <div class="meta">最終更新: {{ last_updated }}</div>
+    </header>
+
+    <main>
+        <ul class="news-list">
+            {% for item in news %}
+            <li class="news-item">
+                <a class="title" href="{{ item.link }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+                {% if item.published_at %}
+                <div class="date">公開: {{ item.published_at }}</div>
+                {% endif %}
+            </li>
+            {% endfor %}
+            {% if news|length == 0 %}
+            <li class="news-item">現在、該当のニュースが見つかりません。</li>
+            {% endif %}
+        </ul>
+    </main>
+
+    <div class="footer">
+        表示は Google News RSS から取得しています。サイト構造の変更やアクセス制限があると取得できない場合があります。
+    </div>
+</body>
+</html>
